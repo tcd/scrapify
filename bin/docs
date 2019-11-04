@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Rebuild project documentation and serve it locally.
+rm -rf .yardoc && yard server -r
