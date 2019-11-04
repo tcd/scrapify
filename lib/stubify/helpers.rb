@@ -3,7 +3,7 @@ module Stubify
   # Return a hash with symbolized keys parsed from a given JSON file.
   #
   # @param file [String]
-  # @return [String<JSON>]
+  # @return [Hash<Symbol>]
   def self.parse_json(file)
     return JSON.parse(File.read(file), symbolize_names: true)
   end
@@ -31,6 +31,12 @@ module Stubify
   # @return [String]
   def self.data_dir
     return File.join(self.root_dir, "data")
+  end
+
+  # Directory for writing out files.
+  # @return [String]
+  def self.tmp_dir
+    return File.join(self.root_dir, "tmp")
   end
 
 end
