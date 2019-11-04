@@ -33,4 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "simplecov"
+
+  spec.add_development_dependency "httparty", "~> 0.17.0"
+  spec.add_development_dependency "nokogiri", "~> 1.10.4"
+  spec.add_development_dependency "reverse_markdown", "~> 1.3.0"
 end

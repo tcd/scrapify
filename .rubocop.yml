@@ -20,6 +20,20 @@ Style/StringLiterals:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/DefWithParentheses:
+  Enabled: false
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+# Explicit, not redundant
+Style/RedundantReturn:
+  Enabled: false
+  
+# Explicit, not redundant
+Style/RedundantSelf:
+  Enabled: false
+
 ## Links
 # [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8
 # [2]: https://www.wyeworks.com/blog/2015/12/01/immutable-strings-in-ruby-2-dot-3/
