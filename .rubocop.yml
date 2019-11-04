@@ -1,0 +1,26 @@
+Metrics/LineLength:
+  Max: 120
+
+Layout/TrailingBlankLines:
+  EnforcedStyle: final_newline
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# See link [2]
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+## Links
+# [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8
+# [2]: https://www.wyeworks.com/blog/2015/12/01/immutable-strings-in-ruby-2-dot-3/
+
