@@ -1,5 +1,7 @@
 # Stubify
 
+![Shopify API Version](https://img.shields.io/badge/Shopify_API-2019--10-brightgreen.svg)
+
 ## Installation
 
 Add this line to your application's Gemfile:
