@@ -6,13 +6,17 @@ class UtilTest < Minitest::Test
     data = Stubify.parse_json(file_fixture("simple.json"))
     assert_equal("value", data[:key])
   end
-  
+
   def test_root_dir
     assert_equal(Dir.pwd, Stubify.root_dir())
   end
 
   def test_data_dir
     assert_equal(File.join(Dir.pwd, "data"), Stubify.data_dir())
+  end
+
+  def test_tmp_dir
+    assert_equal(File.join(Dir.pwd, "tmp"), Stubify.tmp_dir())
   end
 
   def test_write_to_file

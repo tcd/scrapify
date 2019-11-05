@@ -1,5 +1,18 @@
 module Stubify
 
+  # Read a TSV file and return its contents as an array of hashes.
+  #
+  # @param filepath [String] Path to the TSV file.
+  # @return [Array<Hash>]
+  def self.data_from_tsv_file(filepath)
+    return CSV.read(
+      filepath,
+      col_sep: "\t",
+      headers: true,
+      header_converters: :symbol,
+    ).map(&:to_hash)
+  end
+
   # Return a hash with symbolized keys parsed from a given JSON file.
   #
   # @param file [String]
