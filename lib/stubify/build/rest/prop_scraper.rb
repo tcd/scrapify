@@ -17,6 +17,8 @@ module Stubify
       attr_accessor :read_only
       # @return [Boolean]
       attr_accessor :required
+      # @return [Boolean]
+      attr_accessor :deprecated
       # @return [String]
       attr_accessor :example
       attr_accessor :base_description
@@ -32,18 +34,25 @@ module Stubify
       end
 
       # @return [void]
-      def process_t1
+      def process_t1()
         if @t1.css("span").empty?
           @name = @t1.text.strip
           @read_only = false
         else
           @name = @t1.children.first.text.strip
-          @read_only = true
+          case    @t1.css("span").text.strip
+          when "required"
+            @required = true
+          when "read-only"
+            @read_only = true
+          when "deprecated"
+            @deprecated = true
+          end
         end
       end
 
       # @return [void]
-      def process_t2
+      def process_t2()
         @example = @t2.css(".api-properties-example").text.strip
         @base_description = @t2.css("p").text.strip
         full_description = @t2.css("p,ul")
@@ -51,7 +60,7 @@ module Stubify
       end
 
       # @return [String]
-      def doc
+      def doc()
         doc = "# @!attribute #{@name} "
         if @read_only
           doc << "[r]"
@@ -65,57 +74,42 @@ module Stubify
       end
 
       # @return [String]
-      def doc2
+      def doc2()
         access = "r"
         access << "w" unless @read_only
         return %(
-    # @!attribute #{self.name} [#{access}]
-    #   #{self.full_description.gsub(/\n/, "\n  #   ")}
-    #
-    #   @return [String])
+# @!attribute #{@name} [#{access}]
+#   #{@full_description.gsub(/\n/, "\n  #   ")}
+#
+#   @return [])
       end
-
     end
 
     # Used for scraping Shopify's online API documentation.
-    class PropScraper
-      # @return [String]
-      attr_reader :url
-      # @return [String]
-      attr_reader :name
-      # @return [Nokogiri::XML::Node]
-      attr_reader :doc
-
-      def initialize(url)
-        @url = url
-        @name = File.basename(url)
-        # @type [Nokogiri::HTML::Document]
-        @doc ||= Nokogiri::HTML(HTTParty.get(url))
-      end
-
+    class PropScraper < Scraper
       # @return [Nokogiri::XML::NodeSet]
-      def props
+      def props()
         props = @doc.css(".doc-version--lastest .api-properties tbody tr")
         return props
       end
 
       # @return [Array<String>]
-      def process_props
+      def process_props()
         docs = []
-        @props.each do |prop|
-          docs.append(PropData.new(prop).doc2)
+        self.props().each do |prop|
+          docs.append(PropData.new(prop).doc2())
         end
         return docs
       end
 
       # @return [void]
-      def write_to_file
-        path = File.join(Stubify.data_dir, name) + ".rb"
-        props = self.process_props
+      def write_to_file()
+        path = File.join(Stubify.tmp_dir, name) + ".rb"
+        props = self.process_props()
         File.open(path, "a") do |f|
           f.write("\nclass #{@name.capitalize}\n")
           props.each do |prop|
-            f.write(prop)
+            f.write(prop, "\n")
           end
           f.write("\nend")
         end
@@ -123,40 +117,26 @@ module Stubify
     end
 
     # Used for scraping Shopify's online API documentation.
-    class ModelMaker
-      # @return [String]
-      attr_reader :url
-      # @return [String]
-      attr_reader :name
-      # @return [Nokogiri::XML::Node]
-      attr_reader :doc
-
-      def initialize(url)
-        @url = url
-        @name = File.basename(url)
-        # @type [Nokogiri::HTML::Document]
-        @doc ||= Nokogiri::HTML(HTTParty.get(url))
-      end
-
+    class ModelMaker < Scraper
       # @return [Nokogiri::XML::NodeSet]
-      def props
+      def props()
         props = @doc.css(".doc-version--lastest .api-properties tbody tr")
         return props
       end
 
       # @return [Array<String>]
-      def process_props
+      def process_props()
         docs = []
-        self.props.each do |prop|
-          docs.append(PropData.new(prop).doc)
+        self.props().each do |prop|
+          docs.append(PropData.new(prop).doc())
         end
         return docs
       end
 
       # @return [void]
-      def write_to_file
-        path = File.join(Stubify.data_dir, name) + ".txt"
-        props = self.process_props
+      def write_to_file()
+        path = File.join(Stubify.data_dir(), name) + ".txt"
+        props = self.process_props()
         File.open(path, "a") do |f|
           props.each do |prop|
             f.write(prop)
