@@ -1,0 +1,19 @@
+{
+  "name": "apiKey",
+  "description": "A unique application API identifier.",
+  "args": [],
+  "type": {
+    "kind": "NON_NULL",
+    "name": null,
+    "ofType": {
+      "kind": "SCALAR",
+      "name": "String",
+      "ofType": null
+    }
+  },
+  "isDeprecated": false,
+  "deprecationReason": null,
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "requiredAccess": null
+}

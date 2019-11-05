@@ -21,9 +21,9 @@ class UtilTest < Minitest::Test
 
   def test_write_to_file
     tmp_dir = File.join(Dir.pwd, "tmp")
-    tmp_file = File.join(tmp_dir, "write_to_file.txt")
+    tmp_file = File.join(tmp_dir, "test", "write_to_file.txt")
     Stubify.write_to_file(tmp_file, "testingtestingtesting")
-    file_count = Dir["#{tmp_dir}/*"].count { |file| File.file?(file) }
+    file_count = Dir["#{tmp_dir}/test/*"].count { |file| File.file?(file) }
     assert_equal(1, file_count)
     FileUtils.rm_f(tmp_file)
   end

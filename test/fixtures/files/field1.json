@@ -1,0 +1,15 @@
+{
+  "name": "handle",
+  "description": "Handle of the app.",
+  "args": [],
+  "type": {
+    "kind": "SCALAR",
+    "name": "String",
+    "ofType": null
+  },
+  "isDeprecated": false,
+  "deprecationReason": null,
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "requiredAccess": null
+}
