@@ -1,0 +1,2233 @@
+[
+  {
+    "kind": "INTERFACE",
+    "name": "Node",
+    "description": "An object with an ID to support global identification.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "ID",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "App",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AppCredit",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AppInstallation",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AppPurchaseOneTime",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AppSubscription",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "AppUsageRecord",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "BasicEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "BulkOperation",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Channel",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Collection",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Customer",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CustomerVisit",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryCarrierService",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryCondition",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryCountry",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryLocationGroup",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryMethodDefinition",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryParticipant",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryProfile",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryProvince",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryRateDefinition",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DeliveryZone",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountAutomaticBxgy",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountAutomaticNode",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountCodeNode",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Domain",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrder",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrderLineItem",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Fulfillment",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "FulfillmentEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "FulfillmentLineItem",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "InventoryItem",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "InventoryLevel",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "LineItem",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Location",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MailingAddress",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MarketingActivity",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MarketingEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Metafield",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MetafieldStorefrontVisibility",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStoreArticle",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStoreBlog",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStorePage",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Order",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OrderDisputeSummary",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OrderTransaction",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRule",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRuleDiscountCode",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PrivateMetafield",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductOption",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductVariant",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Publication",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Refund",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SavedSearch",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ScriptTag",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Shop",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsAccount",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsBankAccount",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsDispute",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsPayout",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsVerification",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "StorefrontAccessToken",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "TenderTransaction",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "WebhookSubscription",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "HasMetafields",
+    "description": "Represents information about the metafields associated to the specified resource.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "metafield",
+        "description": "The metafield associated with the resource.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Container for a set of metafields (maximum of 20 characters).",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "key",
+            "description": "Identifier for the metafield (maximum of 30 characters).",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "OBJECT",
+          "name": "Metafield",
+          "ofType": null
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "metafields",
+        "description": "A paginated list of metafields associated with the resource.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Finds all metafields with a specific namespace under the resource.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "MetafieldConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "privateMetafield",
+        "description": "Returns a private metafield found by namespace and key.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "The namespace for the private metafield.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "key",
+            "description": "The key for the private metafield.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "OBJECT",
+          "name": "PrivateMetafield",
+          "ofType": null
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "privateMetafields",
+        "description": "List of private metafields.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Filter the private metafields by namespace.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "PrivateMetafieldConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Collection",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Customer",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrder",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Image",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Order",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductVariant",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Shop",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "LegacyInteroperability",
+    "description": "Interoperability metadata for types which directly correspond to a REST Admin API resource.\n",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "legacyResourceId",
+        "description": "The ID of the corresponding resource in the REST Admin API.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "UnsignedInt64",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Customer",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrder",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Fulfillment",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "InventoryItem",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Location",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MarketingEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Metafield",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MetafieldStorefrontVisibility",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Order",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRule",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductVariant",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Refund",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SavedSearch",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ScriptTag",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsDispute",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsPayout",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "WebhookSubscription",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "DisplayableError",
+    "description": "Represents an error in the input of a mutation.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "field",
+        "description": "Path to the input field which caused the error.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "message",
+        "description": "The error message.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "DiscountUserError",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRuleUserError",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "TranslationUserError",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UserError",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "HasPublishedTranslations",
+    "description": "Published translations associated with the resource.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "translations",
+        "description": "The translations associated with the resource.",
+        "args": [
+          {
+            "name": "locale",
+            "description": "Filters translations locale.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null,
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PublishedTranslation",
+                "ofType": null
+              }
+            }
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Collection",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Link",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStoreArticle",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStoreBlog",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStorePage",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductOption",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductVariant",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Shop",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "Publishable",
+    "description": "Represents a resource that can be published to a channel.\nA publishable resource can be either a Product or Collection.\n",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "availablePublicationCount",
+        "description": "The number of publications a resource is published to without feedback errors.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "publicationCount",
+        "description": "The number of publications a resource is published on.",
+        "args": [
+          {
+            "name": "onlyPublished",
+            "description": "Include only the resource's publications that are published. If false, then return all the resource's publications including future publications.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "true"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "publishedOnChannel",
+        "description": "Check to see whether the resource is published to a given channel.",
+        "args": [
+          {
+            "name": "channelId",
+            "description": "The ID of the channel to check.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": true,
+        "deprecationReason": "Use `publishedOnPublication` instead",
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "publishedOnCurrentChannel",
+        "description": "Check to see whether the resource is published to the calling app's channel.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": true,
+        "deprecationReason": "Use `publishedOnCurrentPublication` instead",
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_product_listings` access scope"
+      },
+      {
+        "name": "publishedOnCurrentPublication",
+        "description": "Check to see whether the resource is published to the calling app's publication.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_product_listings` access scope"
+      },
+      {
+        "name": "publishedOnPublication",
+        "description": "Check to see whether the resource is published to a given publication.",
+        "args": [
+          {
+            "name": "publicationId",
+            "description": "The ID of the publication to check.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "resourcePublications",
+        "description": "The list of resources that are published to a publication.",
+        "args": [
+          {
+            "name": "onlyPublished",
+            "description": "Return only the resources that are published. If false, then return all resource publications.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "true"
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "ResourcePublicationConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "unpublishedChannels",
+        "description": "The list of channels that the resource is not published to.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "ChannelConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": true,
+        "deprecationReason": "Use `unpublishedPublications` instead",
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      },
+      {
+        "name": "unpublishedPublications",
+        "description": "The list of publications that the resource is not published to.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "PublicationConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": "`read_publications` access scope"
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Collection",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "Navigable",
+    "description": "A default cursor for use in pagination.\nThe default cursor can be used for next and previous navigation.\n",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "defaultCursor",
+        "description": "A default cursor for use in pagination.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStoreArticle",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "OnlineStorePage",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ProductVariant",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "OnlineStorePreviewable",
+    "description": "Online Store preview URL of the object.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "onlineStorePreviewUrl",
+        "description": "The online store preview URL.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "SCALAR",
+          "name": "URL",
+          "ofType": null
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Product",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "AppPurchase",
+    "description": "Services and features purchased once by the store.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "createdAt",
+        "description": "The date and time when the app purchase was created.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "DateTime",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "name",
+        "description": "The name of the app purchase.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "price",
+        "description": "The amount to be charged to the store for the app purchase.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "MoneyV2",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "status",
+        "description": "The status of the app purchase. Possible values include pending, active, declined and cancelled.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "AppPurchaseStatus",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "test",
+        "description": "Whether the app purchase is a test transaction.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "AppPurchaseOneTime",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "CommentEventSubject",
+    "description": "The subject line of a comment event.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "hasTimelineComment",
+        "description": "Whether the timeline subject has a timeline comment. If true, then a timeline comment exists.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "ID",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Customer",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrder",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Order",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRule",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "HasEvents",
+    "description": "Connector to event records on a compatible host.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "events",
+        "description": "The paginated list of events associated with the host subject.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "false"
+          },
+          {
+            "name": "sortKey",
+            "description": "Sort the underlying list by the given key.",
+            "type": {
+              "kind": "ENUM",
+              "name": "EventSortKeys",
+              "ofType": null
+            },
+            "defaultValue": "ID"
+          },
+          {
+            "name": "query",
+            "description": "Supported filter parameters:\n - `comments`\n - `created_at`\n - `subject_type`\n - `verb`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).\n",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "EventConnection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "Customer",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountAutomaticBxgy",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountAutomaticNode",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountCodeNode",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DraftOrder",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Order",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PriceRule",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "Event",
+    "description": "Events chronicle resource activities such as the creation of an article, the fulfillment of an order, or the\naddition of a product.\n",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "appTitle",
+        "description": "The name of the app that created the event. Returns null when the event originates from the Shopify admin.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "attributeToApp",
+        "description": "Whether the event was created by an app.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "attributeToUser",
+        "description": "Whether the event was caused by an admin user.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "createdAt",
+        "description": "The date and time when the event was created.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "DateTime",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "criticalAlert",
+        "description": "Whether the event is critical.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "ID",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "message",
+        "description": "Human readable text that describes the event.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "FormattedString",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "BasicEvent",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentEvent",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "CustomerMoment",
+    "description": "Represents events preceding a customer order, such as shop sessions.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "occurredAt",
+        "description": "When the customer moment occurred.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "DateTime",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "CustomerVisit",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": "`read_orders` access scope"
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "DiscountApplication",
+    "description": "Discount applications capture the intentions of a discount source at\nthe time of application on an order's line items or shipping lines.\n",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "allocationMethod",
+        "description": "The method by which the discount's value is allocated to its entitled items.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "DiscountApplicationAllocationMethod",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "index",
+        "description": "An ordered index that can be used to identify the discount application and indicate the precedence\nof the discount application for calculations.\n",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "targetSelection",
+        "description": "How the discount amount is distributed on the discounted lines.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "DiscountApplicationTargetSelection",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "targetType",
+        "description": "Whether the discount is applied on line items or shipping lines.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "DiscountApplicationTargetType",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "value",
+        "description": "The value of the discount application.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "UNION",
+            "name": "PricingValue",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "AutomaticDiscountApplication",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "DiscountCodeApplication",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ManualDiscountApplication",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ScriptDiscountApplication",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": null
+  },
+  {
+    "kind": "INTERFACE",
+    "name": "ShopifyPaymentsChargeStatementDescriptor",
+    "description": "The charge descriptors for a payments account.",
+    "accessRestricted": false,
+    "accessRestrictedReason": null,
+    "fields": [
+      {
+        "name": "default",
+        "description": "The default charge statement descriptor.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      },
+      {
+        "name": "prefix",
+        "description": "The prefix of the statement descriptor.",
+        "args": [
+
+        ],
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        },
+        "isDeprecated": false,
+        "deprecationReason": null,
+        "accessRestricted": false,
+        "accessRestrictedReason": null,
+        "requiredAccess": null
+      }
+    ],
+    "inputFields": null,
+    "interfaces": null,
+    "enumValues": null,
+    "possibleTypes": [
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsDefaultChargeStatementDescriptor",
+        "ofType": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ShopifyPaymentsJpChargeStatementDescriptor",
+        "ofType": null
+      }
+    ],
+    "requiredAccess": "`read_shopify_payments` access scope"
+  }
+]
