@@ -1,0 +1,26 @@
+{
+  "kind": "ENUM",
+  "name": "PriceRuleTarget",
+  "description": "The type of lines (line_item or shipping_line) to which the price rule applies.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": [
+    {
+      "name": "LINE_ITEM",
+      "description": "The price rule applies to line items.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "SHIPPING_LINE",
+      "description": "The price rule applies to shipping lines.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    }
+  ],
+  "possibleTypes": null,
+  "requiredAccess": null
+}

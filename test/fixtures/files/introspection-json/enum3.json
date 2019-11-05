@@ -1,0 +1,68 @@
+{
+  "kind": "ENUM",
+  "name": "ProductSortKeys",
+  "description": "The set of valid sort keys for the products query.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": [
+    {
+      "name": "TITLE",
+      "description": "Sort by the `title` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "PRODUCT_TYPE",
+      "description": "Sort by the `product_type` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "VENDOR",
+      "description": "Sort by the `vendor` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "INVENTORY_TOTAL",
+      "description": "Sort by the `inventory_total` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "UPDATED_AT",
+      "description": "Sort by the `updated_at` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "CREATED_AT",
+      "description": "Sort by the `created_at` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "PUBLISHED_AT",
+      "description": "Sort by the `published_at` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "ID",
+      "description": "Sort by the `id` value.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "RELEVANCE",
+      "description": "During a search (i.e. when the `query` parameter has been specified on the connection) this sorts the\nresults by relevance to the search term(s). When no search query is specified, this sort key is not\ndeterministic and should not be used.\n",
+      "isDeprecated": false,
+      "deprecationReason": null
+    }
+  ],
+  "possibleTypes": null,
+  "requiredAccess": null
+}

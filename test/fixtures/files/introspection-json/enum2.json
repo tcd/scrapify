@@ -1,0 +1,26 @@
+{
+  "kind": "ENUM",
+  "name": "DisputeType",
+  "description": "The possible types for a dispute.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": [
+    {
+      "name": "CHARGEBACK",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "INQUIRY",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    }
+  ],
+  "possibleTypes": null,
+  "requiredAccess": null
+}

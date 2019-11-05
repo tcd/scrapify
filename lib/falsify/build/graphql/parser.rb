@@ -22,7 +22,7 @@ module Falsify
           res = []
           @data.each do |d|
             dat = parse_type(d)
-            res << dat if dat
+            res.append(dat) if dat
           end
           return res
         end
@@ -32,14 +32,14 @@ module Falsify
           case type[:kind]
           when "SCALAR"
             return nil
-          # when "UNION"
-          #   return parse_union(type)
+          when "UNION"
+            return parse_union(type)
           when "INTERFACE"
             return parse_interface(type)
-          # when "ENUM"
-          #   return parse_enum(type)
-          # when "OBJECT"
-          #   return parse_object(type)
+          when "ENUM"
+            return parse_enum(type)
+          when "OBJECT"
+            return parse_object(type)
           else
             return nil
           end
@@ -60,7 +60,8 @@ module Falsify
           data = {}
           data[:name]        = field[:name]
           data[:description] = field[:description]
-          if field[:args] && field[:args].length.positive?
+          # if field[:args] && field[:args].length.positive?
+          if field&.[](:args)&.length&.positive?
             data[:args] = field[:args].map { |arg| parse_arg(arg) }
           else
             data[:args] = nil
@@ -107,12 +108,12 @@ module Falsify
           data[:description] = enum[:description]
           data[:values]      = []
           enum[:enumValues].each do |ev|
-            val = {}
-            val[:name]        = ev[:name]
-            val[:description] = ev[:description]
-            data[:values] << val
+            data[:values].append({
+              name: ev[:name],
+              description: ev[:description],
+            })
           end
-          return res
+          return data
         end
 
         # @return [Hash]

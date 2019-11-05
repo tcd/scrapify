@@ -24,6 +24,12 @@ Style/FrozenStringLiteralComment:
 Naming/HeredocDelimiterNaming:
   Enabled: false
 
+Style/BracesAroundHashParameters:
+  EnforcedStyle: braces
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+
 Layout/TrailingBlankLines:
   EnforcedStyle: final_newline
 
@@ -52,6 +58,9 @@ Style/RedundantReturn:
 # Explicit, not redundant
 Style/RedundantSelf:
   Enabled: false
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
 
 ## Links
 # [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8
