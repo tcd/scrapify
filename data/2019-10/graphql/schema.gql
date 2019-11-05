@@ -1,0 +1,5 @@
+schema {
+  query: QueryRoot
+  mutation: Mutation
+  # subscription: Null
+}

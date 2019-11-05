@@ -1,0 +1,675 @@
+[
+  {
+    "name": "Node",
+    "description": "An object with an ID to support global identification.",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "required": true,
+        "type": "ID"
+      }
+    ]
+  },
+  {
+    "name": "HasMetafields",
+    "description": "Represents information about the metafields associated to the specified resource.",
+    "fields": [
+      {
+        "name": "metafield",
+        "description": "The metafield associated with the resource.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Container for a set of metafields (maximum of 20 characters).",
+            "default": null,
+            "required": true,
+            "type": "String"
+          },
+          {
+            "name": "key",
+            "description": "Identifier for the metafield (maximum of 30 characters).",
+            "default": null,
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "required": false,
+        "type": "Metafield"
+      },
+      {
+        "name": "metafields",
+        "description": "A paginated list of metafields associated with the resource.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Finds all metafields with a specific namespace under the resource.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "MetafieldConnection"
+      },
+      {
+        "name": "privateMetafield",
+        "description": "Returns a private metafield found by namespace and key.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "The namespace for the private metafield.",
+            "default": null,
+            "required": true,
+            "type": "String"
+          },
+          {
+            "name": "key",
+            "description": "The key for the private metafield.",
+            "default": null,
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "required": false,
+        "type": "PrivateMetafield"
+      },
+      {
+        "name": "privateMetafields",
+        "description": "List of private metafields.",
+        "args": [
+          {
+            "name": "namespace",
+            "description": "Filter the private metafields by namespace.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "PrivateMetafieldConnection"
+      }
+    ]
+  },
+  {
+    "name": "LegacyInteroperability",
+    "description": "Interoperability metadata for types which directly correspond to a REST Admin API resource.\n",
+    "fields": [
+      {
+        "name": "legacyResourceId",
+        "description": "The ID of the corresponding resource in the REST Admin API.",
+        "required": true,
+        "type": "UnsignedInt64"
+      }
+    ]
+  },
+  {
+    "name": "DisplayableError",
+    "description": "Represents an error in the input of a mutation.",
+    "fields": [
+      {
+        "name": "field",
+        "description": "Path to the input field which caused the error.",
+        "required": false,
+        "type": null
+      },
+      {
+        "name": "message",
+        "description": "The error message.",
+        "required": true,
+        "type": "String"
+      }
+    ]
+  },
+  {
+    "name": "HasPublishedTranslations",
+    "description": "Published translations associated with the resource.",
+    "fields": [
+      {
+        "name": "translations",
+        "description": "The translations associated with the resource.",
+        "args": [
+          {
+            "name": "locale",
+            "description": "Filters translations locale.",
+            "default": null,
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "required": true,
+        "type": null
+      }
+    ]
+  },
+  {
+    "name": "Publishable",
+    "description": "Represents a resource that can be published to a channel.\nA publishable resource can be either a Product or Collection.\n",
+    "fields": [
+      {
+        "name": "availablePublicationCount",
+        "description": "The number of publications a resource is published to without feedback errors.",
+        "required": true,
+        "type": "Int"
+      },
+      {
+        "name": "publicationCount",
+        "description": "The number of publications a resource is published on.",
+        "args": [
+          {
+            "name": "onlyPublished",
+            "description": "Include only the resource's publications that are published. If false, then return all the resource's publications including future publications.",
+            "default": "true",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "Int"
+      },
+      {
+        "name": "publishedOnChannel",
+        "description": "Check to see whether the resource is published to a given channel.",
+        "args": [
+          {
+            "name": "channelId",
+            "description": "The ID of the channel to check.",
+            "default": null,
+            "required": true,
+            "type": "ID"
+          }
+        ],
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "publishedOnCurrentChannel",
+        "description": "Check to see whether the resource is published to the calling app's channel.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "publishedOnCurrentPublication",
+        "description": "Check to see whether the resource is published to the calling app's publication.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "publishedOnPublication",
+        "description": "Check to see whether the resource is published to a given publication.",
+        "args": [
+          {
+            "name": "publicationId",
+            "description": "The ID of the publication to check.",
+            "default": null,
+            "required": true,
+            "type": "ID"
+          }
+        ],
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "resourcePublications",
+        "description": "The list of resources that are published to a publication.",
+        "args": [
+          {
+            "name": "onlyPublished",
+            "description": "Return only the resources that are published. If false, then return all resource publications.",
+            "default": "true",
+            "required": false,
+            "type": "Boolean"
+          },
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "ResourcePublicationConnection"
+      },
+      {
+        "name": "unpublishedChannels",
+        "description": "The list of channels that the resource is not published to.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "ChannelConnection"
+      },
+      {
+        "name": "unpublishedPublications",
+        "description": "The list of publications that the resource is not published to.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          }
+        ],
+        "required": true,
+        "type": "PublicationConnection"
+      }
+    ]
+  },
+  {
+    "name": "Navigable",
+    "description": "A default cursor for use in pagination.\nThe default cursor can be used for next and previous navigation.\n",
+    "fields": [
+      {
+        "name": "defaultCursor",
+        "description": "A default cursor for use in pagination.",
+        "required": true,
+        "type": "String"
+      }
+    ]
+  },
+  {
+    "name": "OnlineStorePreviewable",
+    "description": "Online Store preview URL of the object.",
+    "fields": [
+      {
+        "name": "onlineStorePreviewUrl",
+        "description": "The online store preview URL.",
+        "required": false,
+        "type": "URL"
+      }
+    ]
+  },
+  {
+    "name": "AppPurchase",
+    "description": "Services and features purchased once by the store.",
+    "fields": [
+      {
+        "name": "createdAt",
+        "description": "The date and time when the app purchase was created.",
+        "required": true,
+        "type": "DateTime"
+      },
+      {
+        "name": "name",
+        "description": "The name of the app purchase.",
+        "required": true,
+        "type": "String"
+      },
+      {
+        "name": "price",
+        "description": "The amount to be charged to the store for the app purchase.",
+        "required": true,
+        "type": "MoneyV2"
+      },
+      {
+        "name": "status",
+        "description": "The status of the app purchase. Possible values include pending, active, declined and cancelled.",
+        "required": true,
+        "type": "AppPurchaseStatus"
+      },
+      {
+        "name": "test",
+        "description": "Whether the app purchase is a test transaction.",
+        "required": true,
+        "type": "Boolean"
+      }
+    ]
+  },
+  {
+    "name": "CommentEventSubject",
+    "description": "The subject line of a comment event.",
+    "fields": [
+      {
+        "name": "hasTimelineComment",
+        "description": "Whether the timeline subject has a timeline comment. If true, then a timeline comment exists.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "required": true,
+        "type": "ID"
+      }
+    ]
+  },
+  {
+    "name": "HasEvents",
+    "description": "Connector to event records on a compatible host.",
+    "fields": [
+      {
+        "name": "events",
+        "description": "The paginated list of events associated with the host subject.",
+        "args": [
+          {
+            "name": "first",
+            "description": "Returns up to the first `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "description": "Returns the elements that come after the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "last",
+            "description": "Returns up to the last `n` elements from the list.",
+            "default": null,
+            "required": false,
+            "type": "Int"
+          },
+          {
+            "name": "before",
+            "description": "Returns the elements that come before the specified cursor.",
+            "default": null,
+            "required": false,
+            "type": "String"
+          },
+          {
+            "name": "reverse",
+            "description": "Reverse the order of the underlying list.",
+            "default": "false",
+            "required": false,
+            "type": "Boolean"
+          },
+          {
+            "name": "sortKey",
+            "description": "Sort the underlying list by the given key.",
+            "default": "ID",
+            "required": false,
+            "type": "EventSortKeys"
+          },
+          {
+            "name": "query",
+            "description": "Supported filter parameters:\n - `comments`\n - `created_at`\n - `subject_type`\n - `verb`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).\n",
+            "default": null,
+            "required": false,
+            "type": "String"
+          }
+        ],
+        "required": true,
+        "type": "EventConnection"
+      }
+    ]
+  },
+  {
+    "name": "Event",
+    "description": "Events chronicle resource activities such as the creation of an article, the fulfillment of an order, or the\naddition of a product.\n",
+    "fields": [
+      {
+        "name": "appTitle",
+        "description": "The name of the app that created the event. Returns null when the event originates from the Shopify admin.",
+        "required": false,
+        "type": "String"
+      },
+      {
+        "name": "attributeToApp",
+        "description": "Whether the event was created by an app.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "attributeToUser",
+        "description": "Whether the event was caused by an admin user.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "createdAt",
+        "description": "The date and time when the event was created.",
+        "required": true,
+        "type": "DateTime"
+      },
+      {
+        "name": "criticalAlert",
+        "description": "Whether the event is critical.",
+        "required": true,
+        "type": "Boolean"
+      },
+      {
+        "name": "id",
+        "description": "Globally unique identifier.",
+        "required": true,
+        "type": "ID"
+      },
+      {
+        "name": "message",
+        "description": "Human readable text that describes the event.",
+        "required": true,
+        "type": "FormattedString"
+      }
+    ]
+  },
+  {
+    "name": "CustomerMoment",
+    "description": "Represents events preceding a customer order, such as shop sessions.",
+    "fields": [
+      {
+        "name": "occurredAt",
+        "description": "When the customer moment occurred.",
+        "required": true,
+        "type": "DateTime"
+      }
+    ]
+  },
+  {
+    "name": "DiscountApplication",
+    "description": "Discount applications capture the intentions of a discount source at\nthe time of application on an order's line items or shipping lines.\n",
+    "fields": [
+      {
+        "name": "allocationMethod",
+        "description": "The method by which the discount's value is allocated to its entitled items.",
+        "required": true,
+        "type": "DiscountApplicationAllocationMethod"
+      },
+      {
+        "name": "index",
+        "description": "An ordered index that can be used to identify the discount application and indicate the precedence\nof the discount application for calculations.\n",
+        "required": true,
+        "type": "Int"
+      },
+      {
+        "name": "targetSelection",
+        "description": "How the discount amount is distributed on the discounted lines.",
+        "required": true,
+        "type": "DiscountApplicationTargetSelection"
+      },
+      {
+        "name": "targetType",
+        "description": "Whether the discount is applied on line items or shipping lines.",
+        "required": true,
+        "type": "DiscountApplicationTargetType"
+      },
+      {
+        "name": "value",
+        "description": "The value of the discount application.",
+        "required": true,
+        "type": "PricingValue"
+      }
+    ]
+  },
+  {
+    "name": "ShopifyPaymentsChargeStatementDescriptor",
+    "description": "The charge descriptors for a payments account.",
+    "fields": [
+      {
+        "name": "default",
+        "description": "The default charge statement descriptor.",
+        "required": false,
+        "type": "String"
+      },
+      {
+        "name": "prefix",
+        "description": "The prefix of the statement descriptor.",
+        "required": true,
+        "type": "String"
+      }
+    ]
+  }
+]
