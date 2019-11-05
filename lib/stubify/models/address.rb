@@ -54,7 +54,7 @@ module Stubify
     # @!attribute province [rw]
     #   The name of the region (province, state, prefecture, ...) of the billing address.
     #   @return [String]
-    attr_accessor
+    attr_accessor :province
     # @!attribute province_code [r]
     #   The two-letter abbreviation of the region of the billing address.
     #   @return [String]

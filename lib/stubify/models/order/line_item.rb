@@ -1,5 +1,9 @@
 module Stubify
   # An individual item in an Order.
+  #
+  # Required Fields:
+  # - variant_id
+  # - quantity
   class LineItem
     # @!attribute fulfillable_quantity [rw]
     #   The amount available to fulfill, calculated as follows:

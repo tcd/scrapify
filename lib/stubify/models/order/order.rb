@@ -1,6 +1,9 @@
 module Stubify
   # An order is a customer's completed request to purchase one or more products from a shop.
-  # See the [Order resource](https://help.shopify.com/en/api/reference/orders/order).
+  # See the [API documentation](https://help.shopify.com/en/api/reference/orders/order).
+  #
+  # Required Fields:
+  # - line_items
   class Order
     # @!attribute app_id [r]
     #   The ID of the app that created the order.
