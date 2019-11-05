@@ -1,4 +1,4 @@
-module Stubify
+module Falsify
   # Used for:
   # - Order.billing_address
   # - Order.shipping_address

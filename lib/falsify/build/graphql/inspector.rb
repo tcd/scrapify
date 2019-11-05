@@ -1,6 +1,6 @@
 require "pry"
 
-module Stubify
+module Falsify
   module Build
     module GraphQL
       class Inspector
@@ -10,10 +10,10 @@ module Stubify
 
         # @return [void]
         def initialize()
-          data_file = File.join(Stubify.data_dir, "2019-10/graphql/admin_2019_10.json")
+          data_file = File.join(Falsify.data_dir, "2019-10/graphql/admin_2019_10.json")
           # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
           # @type [Hash<Symbol>]
-          @data = Stubify.parse_json(data_file)[:data][:__schema][:types]
+          @data = Falsify.parse_json(data_file)[:data][:__schema][:types]
         end
 
         # def thin_data()

@@ -1,3 +1,3 @@
-module Stubify
+module Falsify
   class Error < StandardError; end
 end

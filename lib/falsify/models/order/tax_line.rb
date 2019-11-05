@@ -1,4 +1,4 @@
-module Stubify
+module Falsify
   # Details a tax applied to a LineItem.
   class TaxLine
     # @!attribute title [rw]

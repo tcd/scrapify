@@ -1,4 +1,4 @@
-module Stubify
+module Falsify
   # Used for:
   # - price_set
   # - discounted_price_set

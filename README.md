@@ -1,4 +1,4 @@
-# Stubify
+# Falsify
 
 ![Shopify API Version](https://img.shields.io/badge/Shopify_API-2019--10-brightgreen.svg)
 
@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'stubify'
+gem 'falsify'
 ```
 
 And then execute:
@@ -18,12 +18,12 @@ bundle
 Or install it yourself as:
 
 ```sh
-gem install stubify
+gem install falsify
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/stubify.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/falsify.
 
 ## License
 

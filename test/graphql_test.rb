@@ -11,8 +11,8 @@ class GraphQLTest < Minitest::Test
       args: nil,
       type: "String",
     }
-    data = Stubify.parse_json(file_fixture("field1.json"))
-    p = Stubify::Build::GraphQL::Parser.new()
+    data = Falsify.parse_json(file_fixture("field1.json"))
+    p = Falsify::Build::GraphQL::Parser.new()
     have = p.parse_field(data)
     assert_equal(want, have)
   end
@@ -26,8 +26,8 @@ class GraphQLTest < Minitest::Test
       args: nil,
       type: "String",
     }
-    data = Stubify.parse_json(file_fixture("field2.json"))
-    p = Stubify::Build::GraphQL::Parser.new()
+    data = Falsify.parse_json(file_fixture("field2.json"))
+    p = Falsify::Build::GraphQL::Parser.new()
     have = p.parse_field(data)
     assert_equal(want, have)
   end
@@ -41,8 +41,8 @@ class GraphQLTest < Minitest::Test
       args: nil,
       type: "String",
     }
-    data = Stubify.parse_json(file_fixture("field3.json"))
-    p = Stubify::Build::GraphQL::Parser.new()
+    data = Falsify.parse_json(file_fixture("field3.json"))
+    p = Falsify::Build::GraphQL::Parser.new()
     have = p.parse_field(data)
     assert_equal(want, have)
   end
@@ -71,8 +71,8 @@ class GraphQLTest < Minitest::Test
         },
       ],
     }
-    data = Stubify.parse_json(file_fixture("field4.json"))
-    p = Stubify::Build::GraphQL::Parser.new()
+    data = Falsify.parse_json(file_fixture("field4.json"))
+    p = Falsify::Build::GraphQL::Parser.new()
     have = p.parse_field(data)
     assert_equal(want, have)
   end

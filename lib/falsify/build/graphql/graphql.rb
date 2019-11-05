@@ -1,6 +1,6 @@
 require "pry"
 
-module Stubify
+module Falsify
   module Build
     module GraphQL
 
@@ -66,7 +66,7 @@ interface #{iface[:name]} {
 
       def self.save_interfaces(is)
         File.open('interface.gql', 'a') do |f|
-          is.each { |i| f.write(Stubify::Build::GraphQL.gen_interface(i)) }
+          is.each { |i| f.write(Falsify::Build::GraphQL.gen_interface(i)) }
         end
       end
 

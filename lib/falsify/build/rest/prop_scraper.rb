@@ -2,7 +2,7 @@ require "HTTParty"
 require "nokogiri"
 require "reverse_markdown"
 
-module Stubify
+module Falsify
   module Build
 
     class PropData
@@ -104,7 +104,7 @@ module Stubify
 
       # @return [void]
       def write_to_file()
-        path = File.join(Stubify.tmp_dir, name) + ".rb"
+        path = File.join(Falsify.tmp_dir, name) + ".rb"
         props = self.process_props()
         File.open(path, "a") do |f|
           f.write("\nclass #{@name.capitalize}\n")
@@ -135,7 +135,7 @@ module Stubify
 
       # @return [void]
       def write_to_file()
-        path = File.join(Stubify.data_dir(), name) + ".txt"
+        path = File.join(Falsify.data_dir(), name) + ".txt"
         props = self.process_props()
         File.open(path, "a") do |f|
           props.each do |prop|

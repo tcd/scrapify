@@ -1,4 +1,4 @@
-module Stubify
+module Falsify
   # An individual shipping method used to fulfill an order.
   class ShippingLine
     # @!attribute code [rw]
