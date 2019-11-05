@@ -2,75 +2,74 @@ require "pry"
 
 module Stubify
   module Build
-    class GraphQL
-      attr_accessor :data
+    module GraphQL
 
-      def initialize
-        data_file = File.join(Stubify.data_dir, "")
-        @data = Stubify.parse_json(data_file)
-      end
-      # data = parse_json('/Users/clay/TCD/shopify/shopify_util/data/graphql/out/admin_2019_10.json')
-
-      # types = data[:data][:__schema][:types].collect { |n| n[:name] }
-      nodes_list = data[:data][:__schema][:types][5][:possible_types].collect { |n| n[:name] }
-      rest_resources = data[:data][:__schema][:types][11][:possible_types].collect { |n| n[:name] }
-
-      # Product - 56
-      # ProductVariant - 73
-      # Customer - 171
-      # Order - 181
-      # MailingAddress -186
-
-      def types
-        data = parse_json("/Users/clay/TCD/shopify/shopify_util/data/graphql/out/admin_2019_10.json")
-        res = []
-        types = data[:data][:__schema][:types]
-        types.each_with_index do |t_o, i|
-          res << "#{i}: #{t_o[:name]}"
+      def self.gen_args(args)
+        return nil if args.nil?
+        return nil unless args.length.positive?
+        a = []
+        args.each do |arg|
+          default = arg[:default] ? " = #{arg[:default]}" : ""
+          bang = arg[:required] ? "!" : ""
+          a << %("#{arg[:description]}"\n#{arg[:name]}: #{arg[:type]}#{default}#{bang})
         end
-        return res
+        return "(\n#{a.join("\n")}\n)"
       end
 
-      def type_data(type_object)
-        res = {}
-        res[:name] = type_object[:name]
-        res[:description] = type_object[:description]
-        res[:fields] = []
-        return res
+#       # @return [String]
+#       def gen_single_arg(arg)
+#         default = arg[:default] ? " = #{arg[:default]}" : ""
+#         bang = arg[:required] ? "!" : ""
+#         return %(
+# (
+#   "#{arg[:description]}"
+#   #{arg[:name]}: #{arg[:type]}#{default}#{bang}
+# ))
+#       end
+
+      # def gen_multi_arg(args)
+      #   a = []
+      #   args.each do |arg|
+      #     default = arg[:default] ? " = #{arg[:default]}" : ""
+      #     bang = arg[:required] ? "!" : ""
+      #     a << %("#{arg[:description]}"\n#{arg[:name]}: #{arg[:type]}#{default}#{bang})
+      #   end
+      #   return "(\n#{a.join("\n")}\n)"
+      # end
+
+      # @param union_data [Hash]
+      # @return [String]
+      def self.gen_union(u_data)
+        return <<~END
+          """#{u_data[:description]}"""
+          union #{u_data[:name]} = #{u_data[:types].join(' | ')}
+        END
       end
 
-      def parse_basic(node)
-
+      # @param field [Hash]
+      # @return [String]
+      def self.gen_field(f)
+        bang = f[:required] ? "!" : ""
+        return "#{f[:name]}#{self.gen_args(f[:args])}: #{f[:type]}#{bang}"
       end
 
-      def parse_field(field)
-        res = {}
-        res[:name] = field[:name]
-        res[:description] = field[:description]
-        t = field[:type]
-        if t[:Kind] == "NON_NULL"
-          res[:required] = true
-          res[:type] = t[:ofType][:name]
-        else
-          res[:required] = false
-          res[:type] = t[:name]
+      def self.gen_interface(iface)
+        fields = iface[:fields].map { |f| self.gen_field(f) }.join("\n  ")
+        return %(
+"#{iface[:description]}"
+interface #{iface[:name]} {
+  #{fields}
+}
+
+)
+      end
+
+      def self.save_interfaces(is)
+        File.open('interface.gql', 'a') do |f|
+          is.each { |i| f.write(Stubify::Build::GraphQL.gen_interface(i)) }
         end
-        return res
       end
 
-      def parse_enum(enum)
-        res = {}
-        res[:name] = enum[:name]
-        res[:description] = enum[:description]
-        res[:values] = []
-        enum[:enumValues].each do |ev|
-          val = {}
-          val[:name] = ev[:name]
-          val[:description] = ev[:description]
-          res[:values] << val
-        end
-        return res
-      end
     end
   end
 end
