@@ -1,9 +1,9 @@
 require "test_helper"
 
-class ParseFieldEnum < Minitest::Test
+class ParseEnumTest < Minitest::Test
 
   def test_parse_enum1
-    want = {
+    want = Falsify::Build::GraphQL::Enum.new(
       name: "PriceRuleTarget",
       description: "The type of lines (line_item or shipping_line) to which the price rule applies.",
       values: [
@@ -16,14 +16,14 @@ class ParseFieldEnum < Minitest::Test
           description: "The price rule applies to shipping lines.",
         },
       ],
-    }
+    )
     data = Falsify.parse_json(file_fixture("introspection-json/enum1.json"))
     have = Falsify::Build::GraphQL::Parser.new().parse_enum(data)
     assert_equal(want, have)
   end
 
   def test_parse_enum2
-    want = {
+    want = Falsify::Build::GraphQL::Enum.new(
       name: "DisputeType",
       description: "The possible types for a dispute.",
       values: [
@@ -36,14 +36,14 @@ class ParseFieldEnum < Minitest::Test
           description: nil,
         },
       ],
-    }
+    )
     data = Falsify.parse_json(file_fixture("introspection-json/enum2.json"))
     have = Falsify::Build::GraphQL::Parser.new().parse_enum(data)
     assert_equal(want, have)
   end
 
   def test_parse_enum3
-    want = {
+    want = Falsify::Build::GraphQL::Enum.new(
       name: "ProductSortKeys",
       description: "The set of valid sort keys for the products query.",
       values: [
@@ -84,7 +84,7 @@ class ParseFieldEnum < Minitest::Test
           description: "During a search (i.e. when the `query` parameter has been specified on the connection) this sorts the\nresults by relevance to the search term(s). When no search query is specified, this sort key is not\ndeterministic and should not be used.\n",
         },
       ],
-    }
+    )
     data = Falsify.parse_json(file_fixture("introspection-json/enum3.json"))
     have = Falsify::Build::GraphQL::Parser.new().parse_enum(data)
     assert_equal(want, have)

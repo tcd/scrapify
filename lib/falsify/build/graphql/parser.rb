@@ -27,111 +27,128 @@ module Falsify
           return res
         end
 
-        # @return [Hash]
+        # @param type [Hash<Symbol>]
+        # @return [Scalar,Object,Enum,Union,Interface,nil]
         def parse_type(type)
           case type[:kind]
           when "SCALAR"
             return nil
+          when "OBJECT"
+            return parse_object(type)
+          when "ENUM"
+            return parse_enum(type)
           when "UNION"
             return parse_union(type)
           when "INTERFACE"
             return parse_interface(type)
-          when "ENUM"
-            return parse_enum(type)
-          when "OBJECT"
-            return parse_object(type)
           else
             return nil
           end
         end
 
-        # @return [Hash]
-        def parse_object(obj)
-          data = {}
-          data[:name]        = obj[:name]
-          data[:description] = obj[:description]
-          data[:fields]      = obj[:fields].map { |f| parse_field(f) }
-          return data
+        # @param data [Hash<Symbol>]
+        # @return [Object]
+        def parse_object(data)
+          object = Object.new()
+          object.name        = data[:name]
+          object.description = data[:description]
+          object.fields      = data[:fields].map { |f| parse_field(f) }
+          if data[:interfaces].length.positive?
+            object.interfaces = data[:interfaces].collect { |i| i[:name] }
+          end
+          return object
         end
 
-        # @param field [Hash]
-        # @return [Hash]
-        def parse_field(field)
-          data = {}
-          data[:name]        = field[:name]
-          data[:description] = field[:description]
-          # if field[:args] && field[:args].length.positive?
-          if field&.[](:args)&.length&.positive?
-            data[:args] = field[:args].map { |arg| parse_arg(arg) }
-          else
-            data[:args] = nil
+        # @param data [Hash<Symbol>]
+        # @return [Field]
+        def parse_field(data)
+          field = Field.new()
+          field.name        = data[:name]
+          field.description = data[:description]
+          # if data&.[](:args)&.length&.positive?
+          if data[:args] && data[:args].length.positive?
+            field.args = data[:args].map { |arg| parse_argument(arg) }
           end
-          type = field[:type]
-          if type[:kind] == "NON_NULL"
-            data[:required] = true
-            if type[:ofType][:kind] == "LIST"
-              data[:list] = true
-              data[:type] = type[:ofType][:ofType][:ofType][:name]
+
+          if data[:type][:kind] == "LIST"
+            field.list = true
+            if data[:type][:ofType][:kind] == "NON_NULL"
+              field.members_required = true
+              field.type             = data[:type][:ofType][:ofType][:name]
             else
-              data[:list] = false
-              data[:type] = type[:ofType][:name]
+              field.type = data[:type][:ofType][:name]
+            end
+          elsif data[:type][:kind] == "NON_NULL"
+            field.required = true
+            if data[:type][:ofType][:kind] == "LIST"
+              field.list = true
+              if data[:type][:ofType][:ofType][:kind] == "NON_NULL"
+                field.members_required = true
+                field.type             = data[:type][:ofType][:ofType][:ofType][:name]
+              else
+                field.type = data[:type][:ofType][:ofType][:name]
+              end
+            else
+              field.type = data[:type][:ofType][:name]
             end
           else
-            data[:list]     = false
-            data[:required] = false
-            data[:type]     = type[:name]
+            field.type = data[:type][:name]
           end
-          return data
+
+          return field
         end
 
-        # @return [Hash]
-        def parse_arg(arg)
-          data = {}
-          data[:name]        = arg[:name]
-          data[:description] = arg[:description]
-          data[:default]     = arg[:defaultValue]
-          type = arg[:type]
-          if type[:kind] == "NON_NULL"
-            data[:required] = true
-            data[:type]     = type[:ofType][:name]
+        # TODO: Handle List args?
+        # @param data [Hash<Symbol>]
+        # @return [Argument]
+        def parse_argument(data)
+          arg = Argument.new()
+          arg.name        = data[:name]
+          arg.description = data[:description]
+          arg.default     = data[:defaultValue]
+          if data[:type][:kind] == "NON_NULL"
+            arg.required = true
+            arg.type = data[:type][:ofType][:name]
           else
-            data[:required] = false
-            data[:type]     = type[:name]
+            arg.type = data[:type][:name]
           end
-          return data
+          return arg
         end
 
-        # @return [Hash]
-        def parse_enum(enum)
-          data = {}
-          data[:name]        = enum[:name]
-          data[:description] = enum[:description]
-          data[:values]      = []
-          enum[:enumValues].each do |ev|
-            data[:values].append({
-              name: ev[:name],
-              description: ev[:description],
+        # @param data [Hash<Symbol>]
+        # @return [Enum]
+        def parse_enum(data)
+          enum = Enum.new()
+          enum.name        = data[:name]
+          enum.description = data[:description]
+          data[:enumValues].each do |v|
+            enum.values.append({
+              name:        v[:name],
+              description: v[:description],
             })
           end
-          return data
+          return enum
         end
 
-        # @return [Hash]
-        def parse_union(union)
-          data = {}
-          data[:name]        = union[:name]
-          data[:description] = union[:description]
-          data[:types]       = union[:possibleTypes].map { |pt| pt[:name] }
-          return data
+        # @param data [Hash<Symbol>]
+        # @return [Union]
+        def parse_union(data)
+          union = Union.new()
+          union.name        = data[:name]
+          union.description = data[:description]
+          union.types       = data[:possibleTypes].map { |pt| pt[:name] }
+
+          return union
         end
 
-        # @return [Hash]
-        def parse_interface(iface)
-          data = {}
-          data[:name]        = iface[:name]
-          data[:description] = iface[:description]
-          data[:fields]      = iface[:fields].map { |f| parse_field(f) }
-          return data
+        # @param data [Hash<Symbol>]
+        # @return [Interface]
+        def parse_interface(data)
+          iface = Interface.new()
+          iface.name        = data[:name]
+          iface.description = data[:description]
+          iface.fields      = data[:fields].map { |f| parse_field(f) }
+          return iface
         end
 
       end
