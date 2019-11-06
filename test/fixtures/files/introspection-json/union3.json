@@ -1,0 +1,39 @@
+{
+  "kind": "UNION",
+  "name": "CommentEventEmbed",
+  "description": "The main embed of a comment event.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": [
+    {
+      "kind": "OBJECT",
+      "name": "Order",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "DraftOrder",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Customer",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Product",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ProductVariant",
+      "ofType": null
+    }
+  ],
+  "requiredAccess": null
+}

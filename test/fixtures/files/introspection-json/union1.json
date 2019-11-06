@@ -1,0 +1,29 @@
+{
+  "kind": "UNION",
+  "name": "DiscountCode",
+  "description": "A code discount.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": [
+    {
+      "kind": "OBJECT",
+      "name": "DiscountCodeBasic",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "DiscountCodeBxgy",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "DiscountCodeFreeShipping",
+      "ofType": null
+    }
+  ],
+  "requiredAccess": null
+}

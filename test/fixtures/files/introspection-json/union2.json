@@ -1,0 +1,19 @@
+{
+  "kind": "UNION",
+  "name": "DiscountEffect",
+  "description": "The type of discount that will be applied. Currently, only percentage off is supported.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": [
+    {
+      "kind": "OBJECT",
+      "name": "DiscountPercentage",
+      "ofType": null
+    }
+  ],
+  "requiredAccess": null
+}
