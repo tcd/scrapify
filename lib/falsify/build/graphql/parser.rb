@@ -35,12 +35,12 @@ module Falsify
             return nil
           when "OBJECT"
             return parse_object(type)
-          when "ENUM"
-            return parse_enum(type)
-          when "UNION"
-            return parse_union(type)
-          when "INTERFACE"
-            return parse_interface(type)
+          # when "ENUM"
+          #   return parse_enum(type)
+          # when "UNION"
+          #   return parse_union(type)
+          # when "INTERFACE"
+          #   return parse_interface(type)
           else
             return nil
           end

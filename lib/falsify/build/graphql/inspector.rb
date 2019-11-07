@@ -17,7 +17,7 @@ module Falsify
         end
 
         # def thin_data()
-        #   blacklist = []
+        #   blacklist = ["QueryRoot"]
         #   return @data.filter { |d| blacklist.include?(d[:name]) }
         # end
 
