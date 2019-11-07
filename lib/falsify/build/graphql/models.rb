@@ -2,6 +2,29 @@ module Falsify
   module Build
     module GraphQL
 
+      # Basic implementations of `to_h`, `to_hash`, and `to_json` for serializing a class.
+      module Serialization
+        # @return [Hash]
+        def to_h()
+          hash = {}
+          self.instance_variables.each do |v|
+            key = v.to_s[1..].to_sym
+            value = self.instance_variable_get(v)
+            hash[key] = value
+          end
+          return hash
+        end
+        alias to_hash to_h
+
+        # @param opts [Hash] For compatibility with `JSON.generate`. See: [ruby-doc.org](https://ruby-doc.org/stdlib-2.6.4/libdoc/json/rdoc/JSON.html#method-i-generate) and [rubydoc.info](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Lint/ToJSON)
+        # @return [String<JSON>]
+        def to_json(opts = {})
+          # return self.to_h.reject! { |k, v| v.nil? }.to_json
+          return self.to_h.to_json
+        end
+
+      end
+
       # Basic definition of `==` for comparing two class instances.
       module BasicComparison
         # Compare two class instances.
@@ -19,6 +42,7 @@ module Falsify
       # Information about a GraphQL [Field](https://graphql.org/learn/schema/#object-types-and-fields).
       class Field
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -90,6 +114,7 @@ module Falsify
       # Information about a GraphQL [Argument](https://graphql.org/learn/schema/#arguments).
       class Argument
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -142,6 +167,7 @@ module Falsify
       # Information about a GraphQL [Scalar type](https://graphql.org/learn/schema/#scalar-types).
       class Scalar
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -163,6 +189,7 @@ module Falsify
       # Information about a GraphQL [Object type](https://graphql.org/learn/schema/#object-types-and-fields).
       class Object
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -193,6 +220,7 @@ module Falsify
       # Information about a GraphQL [Union type](https://graphql.org/learn/schema/#union-types).
       class Union
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -220,6 +248,7 @@ module Falsify
       # Information about a GraphQL [Enumeration type](https://graphql.org/learn/schema/#enumeration-types).
       class Enum
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -247,6 +276,7 @@ module Falsify
       # Information about an individual value in a GraphQL [Enumeration type](https://graphql.org/learn/schema/#enumeration-types).
       class EnumValue
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -268,6 +298,7 @@ module Falsify
       # Information about a GraphQL [Interface](https://graphql.org/learn/schema/#interfaces).
       class Interface
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
@@ -295,6 +326,7 @@ module Falsify
       # Information about a GraphQL [Input type](https://graphql.org/learn/schema/#input-types).
       class Input
         include BasicComparison
+        include Serialization
 
         # @!attribute [rw] name
         #   @return [String]
