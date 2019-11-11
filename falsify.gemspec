@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Clay Dunston"]
   spec.email         = ["claydunston@gmail.com"]
 
-  spec.summary       = "Stubs for Shopify"
+  spec.summary       = "Models for Shopify"
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/tcd/falsify"
   spec.license       = "MIT"
