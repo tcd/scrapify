@@ -1,4 +1,4 @@
-module Falsification
+module Scrapify
   # Details a tax applied to a LineItem.
   class TaxLine
     # @!attribute title [rw]

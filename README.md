@@ -1,4 +1,4 @@
-# Falsification
+# Scrapify
 
 ![Shopify API Version](https://img.shields.io/badge/Shopify_API-2019--10-brightgreen.svg)
 
@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'falsification'
+gem 'scrapify'
 ```
 
 And then execute:
@@ -18,12 +18,12 @@ bundle
 Or install it yourself as:
 
 ```sh
-gem install falsification
+gem install scrapify
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/falsification.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/scrapify.
 
 ## License
 

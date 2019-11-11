@@ -1,23 +1,23 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "falsification"
+require "scrapify"
 
 Gem::Specification.new do |spec|
-  spec.name          = "falsification"
-  spec.version       = Falsification::VERSION
+  spec.name          = "scrapify"
+  spec.version       = Scrapify::VERSION
   spec.authors       = ["Clay Dunston"]
   spec.email         = ["claydunston@gmail.com"]
 
   spec.summary       = "Models for Shopify"
   spec.description   = spec.summary
-  spec.homepage      = "https://github.com/tcd/falsification"
+  spec.homepage      = "https://github.com/tcd/scrapify"
   spec.license       = "MIT"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "https://github.com/tcd/falsification/blob/master/changelog.md"
+  spec.metadata["changelog_uri"] = "https://github.com/tcd/scrapify/blob/master/changelog.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

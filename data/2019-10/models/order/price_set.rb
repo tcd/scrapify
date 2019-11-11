@@ -1,4 +1,4 @@
-module Falsification
+module Scrapify
   # Used for:
   # - price_set
   # - discounted_price_set

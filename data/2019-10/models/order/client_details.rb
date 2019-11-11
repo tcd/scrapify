@@ -1,4 +1,4 @@
-module Falsification
+module Scrapify
   # Information about the browser that the customer used when they placed their order.
   class ClientDetails
     # @!attribute accept_language [rw] The languages and locales that the browser understands.

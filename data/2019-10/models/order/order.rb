@@ -1,4 +1,4 @@
-module Falsification
+module Scrapify
   # An order is a customer's completed request to purchase one or more products from a shop.
   # See the [API documentation](https://help.shopify.com/en/api/reference/orders/order).
   #

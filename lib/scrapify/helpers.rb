@@ -1,4 +1,4 @@
-module Falsification
+module Scrapify
 
   # Read a TSV file and return its contents as an array of hashes.
   #

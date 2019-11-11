@@ -10,7 +10,7 @@ end
 # end
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "falsification"
+require "scrapify"
 
 require "minitest/autorun"
 
