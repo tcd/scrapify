@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # An individual item in an Order.
   #
   # Required Fields:

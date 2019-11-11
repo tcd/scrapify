@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # An ordered list of stacked discount applications.
   # The `discount_applications` property includes 3 types: `discount_code`, `manual`, and `script`.
   # All 3 types share a common structure and have some type specific attributes.

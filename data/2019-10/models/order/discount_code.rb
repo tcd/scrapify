@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # Discount codes to be applied to an order.
   class DiscountCode
     # @!attribute amount [rw]

@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # An amount allocated by discount applications.
   # Each discount allocation is associated to a particular discount application.
   class DiscountAllocation

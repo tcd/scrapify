@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
 
   # Read a TSV file and return its contents as an array of hashes.
   #

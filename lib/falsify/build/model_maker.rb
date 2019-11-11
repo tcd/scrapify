@@ -4,7 +4,7 @@ module Falsification
   module Build
 
     # Used for scraping Shopify's online API documentation.
-    class PropScraper < Scraper
+    class ModelMaker < Scraper
       # @return [Nokogiri::XML::NodeSet]
       def props()
         props = @doc.css(".doc-version--lastest .api-properties tbody tr")
@@ -15,21 +15,19 @@ module Falsification
       def process_props()
         docs = []
         self.props().each do |prop|
-          docs.append(PropData.new(prop).doc2())
+          docs.append(PropData.new(prop).doc())
         end
         return docs
       end
 
       # @return [void]
       def write_to_file()
-        path = File.join(Falsification.tmp_dir, name) + ".rb"
+        path = File.join(Falsification.data_dir(), name) + ".txt"
         props = self.process_props()
         File.open(path, "a") do |f|
-          f.write("\nclass #{@name.capitalize}\n")
           props.each do |prop|
-            f.write(prop, "\n")
+            f.write(prop)
           end
-          f.write("\nend")
         end
       end
     end

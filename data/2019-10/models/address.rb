@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # Used for:
   # - Order.billing_address
   # - Order.shipping_address

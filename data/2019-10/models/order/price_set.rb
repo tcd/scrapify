@@ -1,4 +1,4 @@
-module Falsify
+module Falsification
   # Used for:
   # - price_set
   # - discounted_price_set

@@ -1,10 +1,8 @@
-require "reverse_markdown"
-
 module Falsification
   module Build
 
     # Used for scraping Shopify's online API documentation.
-    class PropScraper < Scraper
+    class ResourceScraper < Scraper
       # @return [Nokogiri::XML::NodeSet]
       def props()
         props = @doc.css(".doc-version--lastest .api-properties tbody tr")
