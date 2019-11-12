@@ -1,13 +1,9 @@
 # Dir.glob(File.join(__dir__, "scrapify", "/**/*.rb")).sort.each { |file| require file }
-# Dir.glob(File.join(File.dirname(__FILE__), "scrapify", "/**/*.rb")).sort.each { |file| require file }
-require "scrapify/error"
+require "HTTParty"
+
 require "scrapify/helpers"
 require "scrapify/resource"
 require "scrapify/scraper"
-require "scrapify/model_maker"
-require "scrapify/prop_data"
-require "scrapify/prop_scraper"
-require "scrapify/resource_scraper"
 
 # Stubs fo Shopify.
 module Scrapify
@@ -20,11 +16,22 @@ module Scrapify
   # @return [Array<String>]
   def self.routes()
     return [
-      # "https://help.shopify.com/en/api/reference/customers/customer",
-      # "https://help.shopify.com/en/api/reference/orders/order",
+      "https://help.shopify.com/en/api/reference/customers/customer",
+      "https://help.shopify.com/en/api/reference/orders/order",
       "https://help.shopify.com/en/api/reference/products/product",
-      # "https://help.shopify.com/en/api/reference/products/product-variant",
+      "https://help.shopify.com/en/api/reference/products/product-variant",
+      "https://help.shopify.com/en/api/reference/shipping-and-fulfillment/fulfillment",
     ]
+  end
+
+  # @return [void]
+  def self.download_docs()
+    self.routes().each do |route|
+      name = File.basename(route)
+      out_file = File.join(Scrapify.data_dir(), "html", (name + ".html"))
+      doc = HTTParty.get(route)
+      Scrapify.write_to_file(out_file, doc)
+    end
   end
 
   # # Generate YARD documentation from Shopify's API documentation
