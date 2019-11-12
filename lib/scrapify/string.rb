@@ -54,4 +54,15 @@ class String
   def indent(amount, indent_string = nil, indent_empty_lines = false)
     dup.tap { |s| s.indent!(amount, indent_string, indent_empty_lines) }
   end
+
+  # It does exactly what you think it does.
+  def comment!()
+    gsub!(/^/, "# ")
+  end
+
+  # It does exactly what you think it does.
+  def comment()
+    # dup.tap { |s| s.comment!() }
+    dup.tap(&:comment!)
+  end
 end
