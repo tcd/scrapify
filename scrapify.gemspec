@@ -6,18 +6,19 @@ Gem::Specification.new do |spec|
   spec.name          = "scrapify"
   spec.version       = Scrapify::VERSION
   spec.authors       = ["Clay Dunston"]
-  spec.email         = ["claydunston@gmail.com"]
+  spec.email         = ["dunstontc@gmail.com"]
 
   spec.summary       = "Models for Shopify"
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/tcd/scrapify"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "https://github.com/tcd/scrapify/blob/master/changelog.md"
+  spec.metadata = {
+    "homepage_uri" => spec.homepage,
+    "source_code_uri" => spec.homepage,
+    "changelog_uri" => "https://github.com/tcd/scrapify/blob/master/changelog.md",
+    "yard.run" => "yri", # use "yard" to build full HTML docs.
+  }
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -34,7 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "simplecov"
 
-  # spec.add_development_dependency "activesupport", "~> 6.0.1"
   spec.add_development_dependency "httparty", "~> 0.17.0"
   spec.add_development_dependency "nokogiri", "~> 1.10.4"
   spec.add_development_dependency "reverse_markdown", "~> 1.3.0"
