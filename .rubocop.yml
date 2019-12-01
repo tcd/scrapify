@@ -16,7 +16,7 @@ Lint/Debugger:
   Enabled: true
 
 Metrics/LineLength:
-  Max: 120
+  Max: 150
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
