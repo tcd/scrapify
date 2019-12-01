@@ -15,9 +15,7 @@ require "scrapify"
 require "minitest/autorun"
 require "pry"
 
-# Return Pathname for a file used in tests.
-#
-# Only works when tests are run from the project root.
+# Return path for a file used in tests.
 #
 # @param path [String]
 def file_fixture(path)
