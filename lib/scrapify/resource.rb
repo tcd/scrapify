@@ -1,5 +1,4 @@
 require "reverse_markdown"
-# require "active_support/core_ext/string"
 
 module Scrapify
 
@@ -14,7 +13,7 @@ module Scrapify
       self.fields = []
     end
 
-    # @param name [String]
+    # @param name [String] Name of a local html file.
     # @return [Scrapify::Resource]
     def self.from_local(name)
       resource = Resource.new()
@@ -28,18 +27,49 @@ module Scrapify
       return resource
     end
 
+    # @param url [String]
+    # @return [Scrapify::Resource]
+    def self.from_remote(url)
+      resource = Resource.new()
+      s = Scrapify::Scraper.web_scraper(url)
+      resource.name = s.name
+      resource.description = "See the [API documentation](#{url})."
+      props = s.doc.css(".doc-version--lastest .api-properties tbody tr")
+      props.each do |prop|
+        resource.fields.append(Field.from_prop(prop))
+      end
+      return resource
+    end
+
     # @return [Array<String>]
     def required_fields
       self.fields.map { |f| f.name if f.required }.compact
     end
 
+    # @return [Scrapify::Field]
+    def field(name)
+      return self.fields.find { |field| field.name == name }
+    end
+
     # @return [String]
-    def generate
+    def generate_description()
+      if self.required_fields().length > 0
+        req = "Required Fields:\n- " + self.required_fields().join("\n- ").indent(2)
+      else
+        req = ""
+      end
+      return req.comment
+    end
+
+    # @return [String]
+    def generate()
       path = File.join(Scrapify.tmp_dir, name) + ".rb"
+      fields = self.fields.map(&:generate).join("\n")
       output = <<~END
         module Falsify
+          #{self.generate_description}
           class #{@name.capitalize}
-
+          #{fields}
           end
         end
       END
@@ -117,13 +147,19 @@ module Scrapify
     def generate()
       access = "r"
       access << "w" unless @read_only
-      return <<~END
-        # @!attribute #{@name} [#{access}]
-        #   #{@full_description.gsub(/\n/, "\n  #   ")}
-        #
-        #   @return []
-        attr_accessor :#{name}
+      description = @full_description.gsub(/\\_/, "_").split(". ").join(".\n").indent(2)
+      result = <<~END
+        @!attribute #{@name} [#{access}]
+        #{description}
+          @return [String]
       END
+      # part_1 = "@!attribute #{@name} [#{access}]"
+      # part_2 = @full_description.indent(2)
+      # part_3 = ""
+      # part_4 = "@return []".indent(2)
+      part_5 = "attr_accessor :#{@name}"
+      # return [part_1, part_2, part_3, part_4].join("\n").comment() + part_5
+      return (result.comment + part_5).indent(4)
     end
 
   end
