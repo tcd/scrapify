@@ -1,6 +1,7 @@
 # Dir.glob(File.join(__dir__, "scrapify", "/**/*.rb")).sort.each { |file| require file }
 require "HTTParty"
 
+require "scrapify/version"
 require "scrapify/helpers"
 require "scrapify/resource"
 require "scrapify/scraper"
