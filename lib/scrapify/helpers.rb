@@ -1,3 +1,6 @@
+require "json"
+require "csv"
+
 module Scrapify
 
   # Read a TSV file and return its contents as an array of hashes.
